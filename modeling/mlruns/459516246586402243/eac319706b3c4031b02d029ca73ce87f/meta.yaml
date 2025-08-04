@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/jjlov/Desktop/Customer%20Churn/churn_prediction_system/modeling/mlruns/459516246586402243/eac319706b3c4031b02d029ca73ce87f/artifacts
+end_time: 1753630026685
+entry_point_name: ''
+experiment_id: '459516246586402243'
+lifecycle_stage: active
+run_id: eac319706b3c4031b02d029ca73ce87f
+run_name: inquisitive-croc-315
+run_uuid: eac319706b3c4031b02d029ca73ce87f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1753630025294
+status: 3
+tags: []
+user_id: jjlov

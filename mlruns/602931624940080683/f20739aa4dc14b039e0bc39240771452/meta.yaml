@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/jjlov/Desktop/Customer%20Churn/churn_prediction_system/mlruns/602931624940080683/f20739aa4dc14b039e0bc39240771452/artifacts
+end_time: 1753630301843
+entry_point_name: ''
+experiment_id: '602931624940080683'
+lifecycle_stage: active
+run_id: f20739aa4dc14b039e0bc39240771452
+run_name: skittish-ant-112
+run_uuid: f20739aa4dc14b039e0bc39240771452
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1753630300690
+status: 3
+tags: []
+user_id: jjlov

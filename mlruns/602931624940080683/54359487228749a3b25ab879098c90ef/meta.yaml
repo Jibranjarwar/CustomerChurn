@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/jjlov/Desktop/Customer%20Churn/churn_prediction_system/mlruns/602931624940080683/54359487228749a3b25ab879098c90ef/artifacts
+end_time: 1753630711937
+entry_point_name: ''
+experiment_id: '602931624940080683'
+lifecycle_stage: active
+run_id: 54359487228749a3b25ab879098c90ef
+run_name: redolent-hare-283
+run_uuid: 54359487228749a3b25ab879098c90ef
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1753630710440
+status: 3
+tags: []
+user_id: jjlov

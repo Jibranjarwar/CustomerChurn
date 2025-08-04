@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/jjlov/Desktop/Customer%20Churn/churn_prediction_system/mlruns/602931624940080683/d8e97bc313924c778c6fa7a8858cbd07/artifacts
+end_time: 1753630316031
+entry_point_name: ''
+experiment_id: '602931624940080683'
+lifecycle_stage: active
+run_id: d8e97bc313924c778c6fa7a8858cbd07
+run_name: aged-stoat-359
+run_uuid: d8e97bc313924c778c6fa7a8858cbd07
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1753630314914
+status: 3
+tags: []
+user_id: jjlov

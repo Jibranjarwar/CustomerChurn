@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/jjlov/Desktop/Customer%20Churn/churn_prediction_system/mlruns/602931624940080683/8a4e3ea7013c4bc7a581733b78d1e38b/artifacts
+end_time: 1753630646614
+entry_point_name: ''
+experiment_id: '602931624940080683'
+lifecycle_stage: active
+run_id: 8a4e3ea7013c4bc7a581733b78d1e38b
+run_name: judicious-dove-241
+run_uuid: 8a4e3ea7013c4bc7a581733b78d1e38b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1753630640709
+status: 3
+tags: []
+user_id: jjlov

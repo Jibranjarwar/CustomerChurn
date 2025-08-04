@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/jjlov/Desktop/Customer%20Churn/churn_prediction_system/mlruns/602931624940080683/b6fd794c44fd4bb58b394c75423b2079/artifacts
+end_time: 1753625465074
+entry_point_name: ''
+experiment_id: '602931624940080683'
+lifecycle_stage: active
+run_id: b6fd794c44fd4bb58b394c75423b2079
+run_name: rebellious-kit-961
+run_uuid: b6fd794c44fd4bb58b394c75423b2079
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1753625464794
+status: 3
+tags: []
+user_id: jjlov

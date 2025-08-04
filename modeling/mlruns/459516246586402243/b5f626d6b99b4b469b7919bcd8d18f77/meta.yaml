@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/jjlov/Desktop/Customer%20Churn/churn_prediction_system/modeling/mlruns/459516246586402243/b5f626d6b99b4b469b7919bcd8d18f77/artifacts
+end_time: 1753630058884
+entry_point_name: ''
+experiment_id: '459516246586402243'
+lifecycle_stage: active
+run_id: b5f626d6b99b4b469b7919bcd8d18f77
+run_name: bedecked-turtle-817
+run_uuid: b5f626d6b99b4b469b7919bcd8d18f77
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1753630056543
+status: 3
+tags: []
+user_id: jjlov

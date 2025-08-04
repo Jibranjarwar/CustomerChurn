@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/jjlov/Desktop/Customer%20Churn/churn_prediction_system/mlruns/602931624940080683/461f1b25ccd04360b67c825ca266df28/artifacts
+end_time: 1753625472133
+entry_point_name: ''
+experiment_id: '602931624940080683'
+lifecycle_stage: active
+run_id: 461f1b25ccd04360b67c825ca266df28
+run_name: abundant-ram-811
+run_uuid: 461f1b25ccd04360b67c825ca266df28
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1753625471764
+status: 3
+tags: []
+user_id: jjlov

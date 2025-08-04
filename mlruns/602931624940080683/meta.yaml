@@ -1,0 +1,6 @@
+artifact_location: file:///C:/Users/jjlov/Desktop/Customer%20Churn/churn_prediction_system/mlruns/602931624940080683
+creation_time: 1753625443778
+experiment_id: '602931624940080683'
+last_update_time: 1753625443778
+lifecycle_stage: active
+name: churn-prediction-optuna

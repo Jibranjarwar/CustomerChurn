@@ -1,0 +1,34 @@
+artifact_path: churn_model
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.8.10
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.3.2
+mlflow_version: 2.17.2
+model_size_bytes: 326616
+model_uuid: e5b22c80903d46cab4a4d2e87de875c6
+run_id: c41ed5bc57524dfca7e96dff445faeab
+saved_input_example_info:
+  artifact_path: input_example.json
+  pandas_orient: split
+  serving_input_path: serving_input_example.json
+  type: dataframe
+signature:
+  inputs: '[{"type": "double", "name": "monthly_spend", "required": true}, {"type":
+    "double", "name": "tenure_days", "required": true}, {"type": "double", "name":
+    "logins_per_day", "required": true}, {"type": "double", "name": "tickets_per_month",
+    "required": true}, {"type": "double", "name": "recency_days", "required": true},
+    {"type": "double", "name": "support_tickets", "required": true}, {"type": "double",
+    "name": "logins_last_30_days", "required": true}]'
+  outputs: '[{"type": "tensor", "tensor-spec": {"dtype": "int32", "shape": [-1]}}]'
+  params: null
+utc_time_created: '2025-07-30 23:05:30.738808'

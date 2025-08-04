@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/jjlov/Desktop/Customer%20Churn/churn_prediction_system/mlruns/602931624940080683/4e707f71192d4b87b6ab1e5a331cbf20/artifacts
+end_time: 1753630692369
+entry_point_name: ''
+experiment_id: '602931624940080683'
+lifecycle_stage: active
+run_id: 4e707f71192d4b87b6ab1e5a331cbf20
+run_name: incongruous-worm-901
+run_uuid: 4e707f71192d4b87b6ab1e5a331cbf20
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1753630688180
+status: 3
+tags: []
+user_id: jjlov

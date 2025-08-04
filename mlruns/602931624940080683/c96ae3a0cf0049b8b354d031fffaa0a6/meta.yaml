@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/jjlov/Desktop/Customer%20Churn/churn_prediction_system/mlruns/602931624940080683/c96ae3a0cf0049b8b354d031fffaa0a6/artifacts
+end_time: 1753625471274
+entry_point_name: ''
+experiment_id: '602931624940080683'
+lifecycle_stage: active
+run_id: c96ae3a0cf0049b8b354d031fffaa0a6
+run_name: amusing-sponge-111
+run_uuid: c96ae3a0cf0049b8b354d031fffaa0a6
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1753625470950
+status: 3
+tags: []
+user_id: jjlov

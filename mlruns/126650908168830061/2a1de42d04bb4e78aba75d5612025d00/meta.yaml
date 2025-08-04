@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/jjlov/Desktop/Customer%20Churn/churn_prediction_system/mlruns/126650908168830061/2a1de42d04bb4e78aba75d5612025d00/artifacts
+end_time: 1753916329165
+entry_point_name: ''
+experiment_id: '126650908168830061'
+lifecycle_stage: active
+run_id: 2a1de42d04bb4e78aba75d5612025d00
+run_name: capable-auk-759
+run_uuid: 2a1de42d04bb4e78aba75d5612025d00
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1753916323837
+status: 3
+tags: []
+user_id: jjlov

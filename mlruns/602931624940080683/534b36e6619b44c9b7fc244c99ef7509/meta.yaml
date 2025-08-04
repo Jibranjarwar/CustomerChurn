@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/jjlov/Desktop/Customer%20Churn/churn_prediction_system/mlruns/602931624940080683/534b36e6619b44c9b7fc244c99ef7509/artifacts
+end_time: 1753625472578
+entry_point_name: ''
+experiment_id: '602931624940080683'
+lifecycle_stage: active
+run_id: 534b36e6619b44c9b7fc244c99ef7509
+run_name: sassy-slug-557
+run_uuid: 534b36e6619b44c9b7fc244c99ef7509
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1753625472150
+status: 3
+tags: []
+user_id: jjlov

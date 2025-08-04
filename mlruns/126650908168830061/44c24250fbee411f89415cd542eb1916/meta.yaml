@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/jjlov/Desktop/Customer%20Churn/churn_prediction_system/mlruns/126650908168830061/44c24250fbee411f89415cd542eb1916/artifacts
+end_time: 1753630625863
+entry_point_name: ''
+experiment_id: '126650908168830061'
+lifecycle_stage: active
+run_id: 44c24250fbee411f89415cd542eb1916
+run_name: wistful-moth-689
+run_uuid: 44c24250fbee411f89415cd542eb1916
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1753630622657
+status: 3
+tags: []
+user_id: jjlov

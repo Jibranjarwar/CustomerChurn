@@ -1,0 +1,10 @@
+data:
+  path: "data/processed/customers_clean.csv"
+
+model:
+  dir: "models"
+  random_state: 42
+  test_size: 0.3  # Increased test size
+  cv_folds: 10    # Increased CV folds
+  n_estimators: 100
+  class_weight: "balanced"

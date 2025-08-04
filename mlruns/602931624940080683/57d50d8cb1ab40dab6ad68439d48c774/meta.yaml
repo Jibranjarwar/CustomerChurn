@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/jjlov/Desktop/Customer%20Churn/churn_prediction_system/mlruns/602931624940080683/57d50d8cb1ab40dab6ad68439d48c774/artifacts
+end_time: 1753625466568
+entry_point_name: ''
+experiment_id: '602931624940080683'
+lifecycle_stage: active
+run_id: 57d50d8cb1ab40dab6ad68439d48c774
+run_name: casual-pug-933
+run_uuid: 57d50d8cb1ab40dab6ad68439d48c774
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1753625466101
+status: 3
+tags: []
+user_id: jjlov

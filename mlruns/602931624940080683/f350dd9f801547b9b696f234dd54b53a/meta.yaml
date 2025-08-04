@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/jjlov/Desktop/Customer%20Churn/churn_prediction_system/mlruns/602931624940080683/f350dd9f801547b9b696f234dd54b53a/artifacts
+end_time: 1753630716731
+entry_point_name: ''
+experiment_id: '602931624940080683'
+lifecycle_stage: active
+run_id: f350dd9f801547b9b696f234dd54b53a
+run_name: awesome-cat-299
+run_uuid: f350dd9f801547b9b696f234dd54b53a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1753630715395
+status: 3
+tags: []
+user_id: jjlov

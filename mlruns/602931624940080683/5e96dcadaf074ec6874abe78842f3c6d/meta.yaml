@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/jjlov/Desktop/Customer%20Churn/churn_prediction_system/mlruns/602931624940080683/5e96dcadaf074ec6874abe78842f3c6d/artifacts
+end_time: 1753625447172
+entry_point_name: ''
+experiment_id: '602931624940080683'
+lifecycle_stage: active
+run_id: 5e96dcadaf074ec6874abe78842f3c6d
+run_name: secretive-gnu-87
+run_uuid: 5e96dcadaf074ec6874abe78842f3c6d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1753625446806
+status: 3
+tags: []
+user_id: jjlov

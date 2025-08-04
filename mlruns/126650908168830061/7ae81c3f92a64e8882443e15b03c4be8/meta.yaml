@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/jjlov/Desktop/Customer%20Churn/churn_prediction_system/mlruns/126650908168830061/7ae81c3f92a64e8882443e15b03c4be8/artifacts
+end_time: 1753625434071
+entry_point_name: ''
+experiment_id: '126650908168830061'
+lifecycle_stage: active
+run_id: 7ae81c3f92a64e8882443e15b03c4be8
+run_name: luxuriant-ram-256
+run_uuid: 7ae81c3f92a64e8882443e15b03c4be8
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1753625430856
+status: 3
+tags: []
+user_id: jjlov

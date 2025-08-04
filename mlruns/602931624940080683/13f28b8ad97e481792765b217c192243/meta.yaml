@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/jjlov/Desktop/Customer%20Churn/churn_prediction_system/mlruns/602931624940080683/13f28b8ad97e481792765b217c192243/artifacts
+end_time: 1753630695697
+entry_point_name: ''
+experiment_id: '602931624940080683'
+lifecycle_stage: active
+run_id: 13f28b8ad97e481792765b217c192243
+run_name: resilient-bat-52
+run_uuid: 13f28b8ad97e481792765b217c192243
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1753630693526
+status: 3
+tags: []
+user_id: jjlov

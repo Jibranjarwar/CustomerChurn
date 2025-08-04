@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/jjlov/Desktop/Customer%20Churn/churn_prediction_system/mlruns/602931624940080683/f6d56c4fe2a24458bf4d439fd34ddf3a/artifacts
+end_time: 1753625468774
+entry_point_name: ''
+experiment_id: '602931624940080683'
+lifecycle_stage: active
+run_id: f6d56c4fe2a24458bf4d439fd34ddf3a
+run_name: learned-whale-855
+run_uuid: f6d56c4fe2a24458bf4d439fd34ddf3a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1753625468511
+status: 3
+tags: []
+user_id: jjlov

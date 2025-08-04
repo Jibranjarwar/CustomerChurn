@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/jjlov/Desktop/Customer%20Churn/churn_prediction_system/mlruns/602931624940080683/6ef1a274e65b4b6bbbe5a8e72a1f4e0c/artifacts
+end_time: 1753625444806
+entry_point_name: ''
+experiment_id: '602931624940080683'
+lifecycle_stage: active
+run_id: 6ef1a274e65b4b6bbbe5a8e72a1f4e0c
+run_name: bald-horse-742
+run_uuid: 6ef1a274e65b4b6bbbe5a8e72a1f4e0c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1753625444325
+status: 3
+tags: []
+user_id: jjlov

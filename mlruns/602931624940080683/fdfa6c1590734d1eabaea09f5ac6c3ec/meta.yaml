@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/jjlov/Desktop/Customer%20Churn/churn_prediction_system/mlruns/602931624940080683/fdfa6c1590734d1eabaea09f5ac6c3ec/artifacts
+end_time: 1753625467692
+entry_point_name: ''
+experiment_id: '602931624940080683'
+lifecycle_stage: active
+run_id: fdfa6c1590734d1eabaea09f5ac6c3ec
+run_name: resilient-jay-857
+run_uuid: fdfa6c1590734d1eabaea09f5ac6c3ec
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1753625467377
+status: 3
+tags: []
+user_id: jjlov

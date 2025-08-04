@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/jjlov/Desktop/Customer%20Churn/churn_prediction_system/mlruns/602931624940080683/45c8fad9b6474fc2a3d5861c9d577ec8/artifacts
+end_time: 1753625469610
+entry_point_name: ''
+experiment_id: '602931624940080683'
+lifecycle_stage: active
+run_id: 45c8fad9b6474fc2a3d5861c9d577ec8
+run_name: salty-foal-308
+run_uuid: 45c8fad9b6474fc2a3d5861c9d577ec8
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1753625469168
+status: 3
+tags: []
+user_id: jjlov
