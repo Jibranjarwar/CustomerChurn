@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  churn-api:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - PYTHONPATH=/app
+    volumes:
+      - ./models:/app/models
+      - ./data:/app/data 

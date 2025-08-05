@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/jjlov/Desktop/Customer%20Churn/churn_prediction_system/modeling/mlruns/459516246586402243/cd5ff882589e4d26813e5df20609646e/artifacts
+end_time: 1753630050710
+entry_point_name: ''
+experiment_id: '459516246586402243'
+lifecycle_stage: active
+run_id: cd5ff882589e4d26813e5df20609646e
+run_name: hilarious-shrimp-239
+run_uuid: cd5ff882589e4d26813e5df20609646e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1753630048642
+status: 3
+tags: []
+user_id: jjlov

@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/jjlov/Desktop/Customer%20Churn/churn_prediction_system/modeling/mlruns/459516246586402243/a6b9655d6d9c418ca64eb8be470c8c09/artifacts
+end_time: 1753630022209
+entry_point_name: ''
+experiment_id: '459516246586402243'
+lifecycle_stage: active
+run_id: a6b9655d6d9c418ca64eb8be470c8c09
+run_name: marvelous-mule-392
+run_uuid: a6b9655d6d9c418ca64eb8be470c8c09
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1753630019888
+status: 3
+tags: []
+user_id: jjlov

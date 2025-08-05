@@ -1,10 +1,41 @@
+#YAML configuration file just to try
 data:
-  path: "data/processed/customers_clean.csv"
+    path: "data/processed/customers_clean.csv"
 
 model:
-  dir: "models"
-  random_state: 42
-  test_size: 0.3  # Increased test size
-  cv_folds: 10    # Increased CV folds
-  n_estimators: 100
-  class_weight: "balanced"
+    dir: "models"
+    random_state: 42
+    test_size: 0.3
+    cv_folds: 10
+    n_estimators: 100
+    class_weight: "balanced"
+  
+    grid_search:
+        n_estimators: [100, 200]
+        max_depth: [5, 10, null]
+        min_samples_split: [2, 5]
+        min_samples_leaf: [1, 2]
+        max_features: ["sqrt", "log2"]
+  
+    optuna:
+        n_trials: 30
+        n_estimators_range: [50, 300]
+        max_depth_range: [3, 20]
+        min_samples_split_range: [2, 10]
+        min_samples_leaf_range: [1, 5]
+
+features:
+    high_value_percentile: 0.8
+    support_heavy_percentile: 0.75
+    days_in_month: 30
+    min_tenure_days: 1
+
+validation:
+    max_correlation_threshold: 0.5
+    perfect_score_threshold: 1.0
+    min_test_size: 2
+
+api:
+    risk_thresholds:
+        high: 0.7
+        medium: 0.4

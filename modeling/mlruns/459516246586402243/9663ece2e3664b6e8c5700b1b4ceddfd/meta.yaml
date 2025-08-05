@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/jjlov/Desktop/Customer%20Churn/churn_prediction_system/modeling/mlruns/459516246586402243/9663ece2e3664b6e8c5700b1b4ceddfd/artifacts
+end_time: 1753630009167
+entry_point_name: ''
+experiment_id: '459516246586402243'
+lifecycle_stage: active
+run_id: 9663ece2e3664b6e8c5700b1b4ceddfd
+run_name: redolent-finch-355
+run_uuid: 9663ece2e3664b6e8c5700b1b4ceddfd
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1753630006762
+status: 3
+tags: []
+user_id: jjlov

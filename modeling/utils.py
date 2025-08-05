@@ -1,113 +1,189 @@
 import logging
-from typing import List, Dict, Any
+import os
+from typing import List, Dict, Any, Optional
 import pandas as pd
 from sklearn.metrics import classification_report, roc_auc_score, confusion_matrix
 import mlflow
 import matplotlib.pyplot as plt
 import yaml
-
-# Set up logging
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+import time
+from datetime import datetime
+from .config import model_config, validation_config
+from .exceptions import (
+    ConfigurationError, 
+    DataValidationError, 
+    ModelEvaluationError, 
+    InsufficientDataError
 )
+
 logger = logging.getLogger(__name__)
 
 def validate_config(config: Dict[str, Any]) -> None:
-    """Validate configuration parameters."""
-    required_keys = ['data', 'model']
-    for key in required_keys:
-        if key not in config:
-            raise ValueError(f"Missing required config section: {key}")
+    """Validate configuration parameters"""
+    logger.info("Validating config")
+    start_time = time.time()
     
-    if not 0 < config['model']['test_size'] < 1:
-        raise ValueError("test_size must be between 0 and 1")
+    try:
+        for key in validation_config.REQUIRED_CONFIG_SECTIONS:
+            if key not in config:
+                logger.error(f"Missing required config section: {key}")
+                raise ConfigurationError(f"Missing required config section: {key}")
+            else:
+                logger.debug(f"Config section '{key}' found")
+        
+        test_size = config['model']['test_size']
+        if not 0 < test_size < 1:
+            logger.error(f"Invalid test_size: {test_size}. Must be between 0 and 1")
+            raise ConfigurationError("test_size must be between 0 and 1")
+        else:
+            logger.debug(f"Test size validation passed: {test_size}")
+        
+        validation_time = time.time() - start_time
+        logger.info(f"Config validation completed: {validation_time:.3f}s")
+        
+    except Exception as e:
+        logger.error(f"Config validation failed: {str(e)}")
+        raise
 
 def validate_data(df: pd.DataFrame, feature_columns: List[str], target_column: str) -> None:
-    """
-    Validate input data for missing values and required columns.
+    """Validate input data for missing values and required columns"""
+    logger.info("Validating data")
+    start_time = time.time()
     
-    Args:
-        df: Input DataFrame
-        feature_columns: List of required feature columns
-        target_column: Name of target column
-    
-    Raises:
-        ValueError: If validation fails
-    """
-    logger.info("Validating input data...")
-    missing = df[feature_columns + [target_column]].isnull().sum()
-    if missing.any():
-        raise ValueError(f"Missing values found:\n{missing[missing > 0]}")
-    if not set(feature_columns).issubset(df.columns):
-        raise ValueError("Some feature columns are missing from the DataFrame.")
-    logger.info("Data validation successful")
+    try:
+        logger.debug(f"Checking for missing values in {len(feature_columns)} features and target")
+        missing = df[feature_columns + [target_column]].isnull().sum()
+        
+        if missing.any():
+            missing_cols = missing[missing > 0].to_dict()
+            logger.error(f"Missing values found: {missing_cols}")
+            raise DataValidationError(f"Missing values found:\n{missing[missing > 0]}")
+        else:
+            logger.debug("No missing values found in features or target")
+        
+        missing_features = set(feature_columns) - set(df.columns)
+        if missing_features:
+            logger.error(f"Missing feature columns: {missing_features}")
+            raise DataValidationError("Some feature columns are missing from the DataFrame")
+        else:
+            logger.debug("All required feature columns present")
+        
+        logger.info(f"Data validation passed: {df.shape}")
+        logger.info(f"Features validated: {len(feature_columns)}")
+        logger.info(f"Target column: {target_column}")
+        
+        if target_column in df.columns:
+            target_dist = df[target_column].value_counts().to_dict()
+            logger.info(f"Target distribution: {target_dist}")
+        
+        validation_time = time.time() - start_time
+        logger.info(f"Data validation completed: {validation_time:.3f}s")
+        
+    except Exception as e:
+        logger.error(f"Data validation failed: {str(e)}")
+        raise
 
-def log_metrics_and_artifacts(model, X_test, y_test, feat_names, mlflow_run, prefix=""):
-    """
-    Log model metrics and visualization artifacts to MLflow.
+def log_metrics_and_artifacts(model: Any, X_test: pd.DataFrame, y_test: pd.Series, 
+                             feat_names: List[str], mlflow_run: Any, prefix: str = "") -> None:
+    """Log model metrics and visualization artifacts to MLflow"""
+    logger.info("Evaluating model and generating artifacts")
+    start_time = time.time()
     
-    Args:
-        model: Trained model
-        X_test: Test features
-        y_test: Test targets
-        feat_names: Feature names
-        mlflow_run: Active MLflow run
-        prefix: Prefix for metric names
-    """
-    logger.info("Calculating and logging metrics...")
-    
-    # Add validation checks
-    if len(y_test) < 2:
-        raise ValueError("Test set too small for meaningful metrics")
-    
-    preds = model.predict(X_test)
-    proba = model.predict_proba(X_test)[:, 1]
-    
-    # Calculate metrics
-    acc = (preds == y_test).mean()
-    auc = roc_auc_score(y_test, proba)
-    cm = confusion_matrix(y_test, preds)
-    report = classification_report(y_test, preds, output_dict=True)
-    
-    # Add sanity checks for perfect scores
-    if acc == 1.0 or auc == 1.0:
-        logger.warning("Perfect scores detected - possible overfitting!")
-    
-    # Log metrics using mlflow directly
-    metrics = {
-        f"{prefix}accuracy": acc,
-        f"{prefix}roc_auc": auc,
-        f"{prefix}f1": report["1"]["f1-score"],
-        f"{prefix}precision": report["1"]["precision"],
-        f"{prefix}recall": report["1"]["recall"]
-    }
-    mlflow.log_metrics(metrics)  # Change this line
-    logger.info(f"Logged metrics: accuracy={acc:.3f}, roc_auc={auc:.3f}")
-    
-    # Log confusion matrix
-    plt.figure(figsize=(4,3))
-    plt.title("Confusion Matrix")
-    plt.xlabel("Predicted")
-    plt.ylabel("Actual")
-    plt.imshow(cm, cmap="Blues", interpolation="nearest")
-    plt.colorbar()
-    plt.xticks([0,1], ["No Churn", "Churn"])
-    plt.yticks([0,1], ["No Churn", "Churn"])
-    for i in range(2):
-        for j in range(2):
-            plt.text(j, i, cm[i, j], ha="center", va="center", color="red")
-    plt.tight_layout()
-    plt.savefig("confusion_matrix.png")
-    mlflow.log_artifact("confusion_matrix.png")  # Change this line
-    plt.close()
-    
-    # Log feature importances
-    importances = model.feature_importances_
-    plt.figure(figsize=(6,4))
-    plt.barh(feat_names, importances)
-    plt.title("Feature Importances")
-    plt.tight_layout()
-    plt.savefig("feature_importances.png")
-    mlflow.log_artifact("feature_importances.png")  # Change this line
-    plt.close()
+    try:
+        config_path = os.path.join(os.path.dirname(__file__), "config.yaml")
+        with open(config_path) as f:
+            config = yaml.safe_load(f)
+        
+        min_test_size = config["validation"]["min_test_size"]
+        if len(y_test) < min_test_size:
+            logger.error(f"Test set too small: {len(y_test)} < {min_test_size}")
+            raise InsufficientDataError(f"Test set too small. Need at least {min_test_size} samples.")
+        
+        logger.info(f"Evaluating model on {len(y_test)} test samples")
+        
+        logger.debug("Generating predictions")
+        preds = model.predict(X_test)
+        proba = model.predict_proba(X_test)[:, 1]
+        
+        logger.debug("Calculating performance metrics")
+        acc = (preds == y_test).mean()
+        auc = roc_auc_score(y_test, proba)
+        cm = confusion_matrix(y_test, preds)
+        report = classification_report(y_test, preds, output_dict=True)
+        
+        metrics = {
+            f"{prefix}accuracy": acc,
+            f"{prefix}roc_auc": auc,
+            f"{prefix}f1": report["1"]["f1-score"],
+            f"{prefix}precision": report["1"]["precision"],
+            f"{prefix}recall": report["1"]["recall"]
+        }
+        
+        logger.info(f"Model performance metrics:")
+        for metric_name, value in metrics.items():
+            logger.info(f"  {metric_name}: {value:.4f}")
+        
+        perfect_threshold = config["validation"]["perfect_score_threshold"]
+        if acc == perfect_threshold or auc == perfect_threshold:
+            logger.warning("Perfect scores seen, overfitting")
+        
+        mlflow.log_metrics(metrics)
+        logger.info(f"Metrics logged to MLflow: {list(metrics.keys())}")
+        
+        logger.debug("Creating confusion matrix visualization")
+        plt.figure(figsize=(4,3))
+        plt.title("Confusion Matrix")
+        plt.xlabel("Predicted")
+        plt.ylabel("Actual")
+        plt.imshow(cm, cmap="Blues", interpolation="nearest")
+        plt.colorbar()
+        plt.xticks([0,1], ["No Churn", "Churn"])
+        plt.yticks([0,1], ["No Churn", "Churn"])
+        for i in range(2):
+            for j in range(2):
+                plt.text(j, i, cm[i, j], ha="center", va="center", color="red")
+        plt.tight_layout()
+        
+        artifacts_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), "artifacts")
+        os.makedirs(artifacts_dir, exist_ok=True)
+        
+        confusion_path = os.path.join(artifacts_dir, "confusion_matrix.png")
+        plt.savefig(confusion_path)
+        mlflow.log_artifact(confusion_path)
+        plt.close()
+        logger.info(f"Confusion matrix saved: {confusion_path}")
+        
+        if hasattr(model, 'feature_importances_'):
+            logger.debug("Creating feature importance visualization")
+            importances = model.feature_importances_
+            
+            feature_importance_df = pd.DataFrame({
+                'feature': feat_names,
+                'importance': importances
+            }).sort_values('importance', ascending=True)
+            
+            plt.figure(figsize=(6,4))
+            plt.barh(feature_importance_df['feature'], feature_importance_df['importance'])
+            plt.title("Feature Importances")
+            plt.tight_layout()
+            
+            feature_path = os.path.join(artifacts_dir, "feature_importances.png")
+            plt.savefig(feature_path)
+            mlflow.log_artifact(feature_path)
+            plt.close()
+            
+            top_features = feature_importance_df.tail(5)
+            logger.info("Top 5 most important features:")
+            for _, row in top_features.iterrows():
+                logger.info(f"  {row['feature']}: {row['importance']:.4f}")
+            
+            logger.info(f"Feature importance plot saved: {feature_path}")
+        else:
+            logger.warning("Model does not have feature_importances_ attribute")
+        
+        processing_time = time.time() - start_time
+        logger.info(f"Model evaluation completed: {processing_time:.3f}s")
+        
+    except Exception as e:
+        logger.error(f"Model evaluation failed: {str(e)}")
+        raise ModelEvaluationError(f"Failed to evaluate model: {str(e)}")
